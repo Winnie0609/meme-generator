@@ -59,7 +59,7 @@ function App() {
               </button>
             </div>
 
-            <div className="credit"> Pi credits to : 
+            <div className="credit"> Picture credits to : 
               <a href="https://www.inverse.com/article/60923-strange-planet-book-visual-glossary" target="_blank" rel="noreferrer">JAKE KLEINMAN</a>
             </div>
           </div>
