@@ -67,7 +67,7 @@ function App() {
 
         {!start && template && (
           <div className="editPage">
-            <button onClick={() => restart()}className="back-btn">
+            <button onClick={() => restart()} className="back-btn">
               <i className="fas fa-arrow-left"></i>
                 Back to template
             </button>
@@ -78,7 +78,7 @@ function App() {
               </div>
 
             <form 
-                onSubmit = { async (e) => {
+                onSubmit = { async(e) => {
                   e.preventDefault()
 
                   const params = {
@@ -120,7 +120,7 @@ function App() {
           </div>
         )}
 
-        {!start &&!template && (
+        {!start && !template && (
           <div className="templatePage">
             <div className="template-header">
               <h1>Meme Generator</h1>
@@ -139,7 +139,6 @@ function App() {
                   </>
                 )
               })}
-              <div style={{margin:"20px"}}></div>
             </div>
           </div>
         )}
