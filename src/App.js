@@ -31,6 +31,30 @@ function App() {
       setBottomText("")
     }
 
+    async function downloadMeme(imageURL) {
+      console.log(imageURL)
+      // fetch the image blob
+      const url = imageURL
+      const response = await fetch(url)
+      console.log(response)
+
+      const blob = await response.blob()
+      console.log(blob)
+      
+      // create an objectURL
+      const blobURl = URL.createObjectURL(blob)
+      console.log(blobURl)
+
+      // set <a> tag's href to blob url
+      const link = document.createElement('a')
+      link.href = blobURl
+      link.download = "meme"
+
+      // Append link and trigger the download
+      document.body.appendChild(link)
+      link.click()
+    }
+
     if (meme) {
       return (
         <div className="showPage">
@@ -41,6 +65,7 @@ function App() {
           <div className="new-meme">
             <button onClick={() => restart()}>Create more Meme!</button>
             <img src={ meme } alt="custom meme" />
+            <button onClick={() => downloadMeme(meme)}>Download</button>
           </div>
             <div style={{margin:"20px"}}></div>
         </div>
@@ -102,7 +127,7 @@ function App() {
 
                 <div className="edit-input">
                     <input 
-                      classname = "top-text"
+                      className = "top-text"
                       placeholder = "Top Text"
                       value = {topText}
                       onChange={(e) => setTopText(e.target.value)}
