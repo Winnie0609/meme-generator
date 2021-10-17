@@ -13,8 +13,8 @@ const objectToQueryParam = (obj) => {
 function App() {
     const [templates, setTemplates] = useState([])
     const [template, setTemplate] = useState(null)
-    const [topText, setTopText] = useState("Top Text")
-    const [bottomText, setBottomText] = useState("Bottom Text")
+    const [topText, setTopText] = useState(" ")
+    const [bottomText, setBottomText] = useState(" ")
     const [meme, setMeme] = useState(null)
     const [start, setStart] = useState(true)
     
@@ -32,18 +32,13 @@ function App() {
     }
 
     async function downloadMeme(imageURL) {
-      console.log(imageURL)
       // fetch the image blob
       const url = imageURL
       const response = await fetch(url)
-      console.log(response)
-
       const blob = await response.blob()
-      console.log(blob)
       
       // create an objectURL
       const blobURl = URL.createObjectURL(blob)
-      console.log(blobURl)
 
       // set <a> tag's href to blob url
       const link = document.createElement('a')
@@ -60,7 +55,7 @@ function App() {
         <div className="showPage">
           <div className="show-header">
             <h1>Meme Generator</h1>
-            <p>Feel free to download you meme!</p>
+            <p>Feel free to download your meme!</p>
           </div>
           <div className="new-meme">
             <button onClick={() => restart()}>Create more Meme!</button>

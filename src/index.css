@@ -229,7 +229,8 @@ input{
 }
 
 .showPage img{
-  width: 300px; 
+  width: 200px; 
+  margin-bottom: 30px;
 }
 
 .new-meme{
